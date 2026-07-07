@@ -1,0 +1,16 @@
+public class Solution extends GuessGame{
+    public int guessNumber(int n){
+        int low=1;
+        int high=n;
+        if(1 <= n && n <=(Math.pow(2,31)-1)){
+            while(low <= high){
+                int mid=low+(high-low)/2;
+                int result=guess(mid);
+                if(result==0){return mid;}
+                else if(result==-1){ high=mid-1;}
+                else{low=mid+1;}
+            }
+        }
+        return -1;
+    }
+}
